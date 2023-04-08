@@ -12,7 +12,7 @@ data class New(
     val video: Video
 ) : NewListInterface {
     override fun hasTrailer(): Boolean {
-        return video == null
+        return video != null
     }
 
     override fun takeImage(): String {
