@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,38 +9,280 @@
     tools:context=".HomeFragment"
     android:background="#323232">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/featuredItemLayout"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/black"
-        >
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/featuredItems"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-16dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            />
+            android:layout_height="match_parent">
 
-        <me.relex.circleindicator.CircleIndicator2
-            android:id="@+id/indicator"
-            android:layout_width="match_parent"
-            android:layout_height="24dp"
-            app:layout_constraintTop_toBottomOf="@id/featuredItems"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:ci_drawable="@drawable/round_white"
-            android:layout_margin="8dp"
-            app:ci_drawable_unselected="@drawable/round_grey"
-            />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/featuredItemLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black"
+                app:layout_constraintTop_toTopOf="parent">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/featuredItems"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <me.relex.circleindicator.CircleIndicator2
+                    android:id="@+id/indicator"
+                    android:layout_width="match_parent"
+                    android:layout_height="24dp"
+                    android:layout_margin="8dp"
+                    app:ci_drawable="@drawable/round_white"
+                    app:ci_drawable_unselected="@drawable/round_grey"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/featuredItems" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
+            <TextView
+                android:id="@+id/vizyondakiler"
+                style="@style/boldTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="VİZYONDAKİLER"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/featuredItemLayout" />
 
+            <TextView
+                android:id="@+id/showAllInTheatre"
+                style="@style/normalTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="Tümünü Gör"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/featuredItemLayout" />
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/inTheatreRV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/vizyondakiler" />
 
+            <TextView
+                android:id="@+id/platformTV"
+                style="@style/boldTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="PLATFORMLARDA NE VAR?"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inTheatreRV" />
+
+            <TextView
+                android:id="@+id/showAllPlatform"
+                style="@style/normalTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="Tümünü Gör"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inTheatreRV" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/platformRV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/platformTV" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/platformItemRv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/platformRV" />
+
+            <TextView
+                android:id="@+id/upcomingtv"
+                style="@style/boldTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="YAKINDA"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/platformItemRv" />
+
+            <TextView
+                android:id="@+id/showAllUpcoming"
+                style="@style/normalTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="Tümünü Gör"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/platformItemRv" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/upcomingItemsRV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/upcomingtv" />
+
+            <TextView
+                android:id="@+id/lastAddedTrailers"
+                style="@style/boldTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="SON EKLENEN FRAGMANLAR"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/upcomingItemsRV" />
+
+            <TextView
+                android:id="@+id/showAllUpTrailers"
+                style="@style/normalTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="Tümünü Gör"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/upcomingItemsRV" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/trailersRV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/lastAddedTrailers" />
+
+            <TextView
+                android:id="@+id/newsTV"
+                style="@style/boldTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="HABERLER"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/trailersRV" />
+
+            <TextView
+                android:id="@+id/showAllNews"
+                style="@style/normalTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="Tümünü Gör"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/trailersRV" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/newsRV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/newsTV" />
+
+            <TextView
+                android:id="@+id/listTV"
+                style="@style/boldTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="LİSTELER"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/newsRV" />
+
+            <TextView
+                android:id="@+id/showAllList"
+                style="@style/normalTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="Tümünü Gör"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/newsRV" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/listItemsRV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/listTV" />
+
+            <TextView
+                android:id="@+id/mostTalked"
+                style="@style/boldTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="EN ÇOK KONUŞUŞLANLAR"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/listItemsRV" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/mostTalkedRV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/mostTalked" />
+
+            <TextView
+                android:id="@+id/bornTodayTV"
+                style="@style/boldTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="BUGÜN DOĞANLAR"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/mostTalkedRV" />
+
+            <TextView
+                android:id="@+id/showAllBornTodays"
+                style="@style/normalTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="Tümünü Gör"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/mostTalkedRV" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/bornTodayRV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bornTodayTV"
+                android:layout_marginBottom="32dp"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
