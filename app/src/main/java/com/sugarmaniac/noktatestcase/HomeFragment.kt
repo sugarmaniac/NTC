@@ -10,10 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.sugarmaniac.noktatestcase.databinding.FragmentHomeBinding
-import com.sugarmaniac.rvadapters.FeaturedItemRVAdapter
-import com.sugarmaniac.rvadapters.GeneralItemAdapter
-import com.sugarmaniac.rvadapters.MostTalkedItemAdapter
-import com.sugarmaniac.rvadapters.PlatformItemAdapter
+import com.sugarmaniac.rvadapters.*
 
 class HomeFragment : Fragment() {
 
@@ -27,6 +24,7 @@ class HomeFragment : Fragment() {
     private lateinit var bornTodayItemRVAdapter: GeneralItemAdapter
     private lateinit var platfromAdapter : PlatformItemAdapter
     private lateinit var mostTalkedItemAdapter: MostTalkedItemAdapter
+    private lateinit var trailerItemAdapter: TrailerItemAdapter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -70,6 +68,9 @@ class HomeFragment : Fragment() {
         mostTalkedItemAdapter = MostTalkedItemAdapter(emptyList()){}
         binding.mostTalkedRV.adapter = mostTalkedItemAdapter
 
+        trailerItemAdapter = TrailerItemAdapter(emptyList()){}
+        binding.trailersRV.adapter = trailerItemAdapter
+
         val snapHelper = PagerSnapHelper()
         snapHelper.attachToRecyclerView(binding.featuredItems)
 
@@ -97,7 +98,7 @@ class HomeFragment : Fragment() {
         }
 
         sharedViewModel.trailers.observe(viewLifecycleOwner){
-
+            trailerItemAdapter.setList(it)
         }
 
         sharedViewModel.news.observe(viewLifecycleOwner){
@@ -120,7 +121,6 @@ class HomeFragment : Fragment() {
             platfromAdapter.setList(it)
             platfromAdapter.setCurrentSelected(0)
             platfromSeriesItemRVAdapter.setList(it.getOrNull(0)?.series ?: emptyList())
-
         }
     }
 
