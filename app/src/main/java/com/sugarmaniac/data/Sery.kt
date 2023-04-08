@@ -15,4 +15,12 @@ data class Sery(
     val tmdbPopularity: Double,
     val type: Int,
     val url: String
-)
+) : GeneralInterface{
+    override fun takeUrl(): String {
+        return image
+    }
+
+    override fun takeName(): String {
+        return name
+    }
+}

@@ -35,7 +35,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:maxLines="2"
-        android:textColor="@color/white"
+        android:textColor="#AAAAAA"
         android:text="Cocacine Bear"
         app:layout_constraintEnd_toEndOf="@id/nameTR"
         app:layout_constraintStart_toStartOf="@id/nameTR"

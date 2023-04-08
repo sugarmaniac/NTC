@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -68,12 +67,15 @@
                 app:layout_constraintTop_toBottomOf="@id/featuredItemLayout" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/inTheatreRV"
+                android:id="@+id/inTheatreRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:orientation="horizontal"
+                android:layout_marginVertical="8dp"
+                android:paddingHorizontal="16dp"
+                android:clipToPadding="false"
+                android:layout_marginEnd="8dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/vizyondakiler" />
 
             <TextView
@@ -84,7 +86,7 @@
                 android:layout_margin="16dp"
                 android:text="PLATFORMLARDA NE VAR?"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/inTheatreRV" />
+                app:layout_constraintTop_toBottomOf="@id/inTheatreRecyclerView" />
 
             <TextView
                 android:id="@+id/showAllPlatform"
@@ -94,7 +96,7 @@
                 android:layout_margin="16dp"
                 android:text="Tümünü Gör"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/inTheatreRV" />
+                app:layout_constraintTop_toBottomOf="@id/inTheatreRecyclerView" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/platformRV"

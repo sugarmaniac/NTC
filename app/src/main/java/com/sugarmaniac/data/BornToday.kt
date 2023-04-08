@@ -8,4 +8,12 @@ data class BornToday(
     val name_surname: String,
     val picture: String,
     val url: String
-)
+) : GeneralInterface {
+    override fun takeUrl(): String {
+        return picture
+    }
+
+    override fun takeName(): String {
+        return name_surname
+    }
+}

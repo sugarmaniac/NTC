@@ -45,4 +45,8 @@ class SharedViewModel:  ViewModel() {
         }
     }
 
+    fun getPlatformItems(position : Int): List<Sery> {
+        return platforms.value?.get(position)?.series ?: emptyList()
+    }
+
 }

@@ -14,4 +14,12 @@ data class Upcoming(
     val release_status: String,
     val url: String,
     val url_name: String
-)
+) : GeneralInterface{
+    override fun takeUrl(): String {
+        return image
+    }
+
+    override fun takeName(): String {
+        return name
+    }
+}
