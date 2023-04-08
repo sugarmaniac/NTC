@@ -10,4 +10,20 @@ data class New(
     val ts: Int,
     val url: String,
     val video: Video
-)
+) : NewListInterface {
+    override fun hasTrailer(): Boolean {
+        return video == null
+    }
+
+    override fun takeImage(): String {
+        return image
+    }
+
+    override fun takeName(): String {
+        return title
+    }
+
+    override fun takeTimeAdded(): String {
+        return ago
+    }
+}

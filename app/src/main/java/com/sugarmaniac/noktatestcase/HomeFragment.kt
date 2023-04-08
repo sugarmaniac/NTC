@@ -25,6 +25,8 @@ class HomeFragment : Fragment() {
     private lateinit var platfromAdapter : PlatformItemAdapter
     private lateinit var mostTalkedItemAdapter: MostTalkedItemAdapter
     private lateinit var trailerItemAdapter: TrailerItemAdapter
+    private lateinit var newsItemAdapter: NewsListItemAdapter
+    private lateinit var listItemAdapter: NewsListItemAdapter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -71,6 +73,12 @@ class HomeFragment : Fragment() {
         trailerItemAdapter = TrailerItemAdapter(emptyList()){}
         binding.trailersRV.adapter = trailerItemAdapter
 
+        newsItemAdapter = NewsListItemAdapter(emptyList()){}
+        binding.newsRV.adapter = newsItemAdapter
+
+        listItemAdapter = NewsListItemAdapter(emptyList()){}
+        binding.listItemsRV.adapter = listItemAdapter
+
         val snapHelper = PagerSnapHelper()
         snapHelper.attachToRecyclerView(binding.featuredItems)
 
@@ -102,7 +110,7 @@ class HomeFragment : Fragment() {
         }
 
         sharedViewModel.news.observe(viewLifecycleOwner){
-
+            newsItemAdapter.setList(it.take(4))
         }
 
         sharedViewModel.bornTodays.observe(viewLifecycleOwner){
@@ -110,7 +118,7 @@ class HomeFragment : Fragment() {
         }
 
         sharedViewModel.recentLists.observe(viewLifecycleOwner){
-
+            listItemAdapter.setList(it.take(4))
         }
 
         sharedViewModel.popularArtist.observe(viewLifecycleOwner){
