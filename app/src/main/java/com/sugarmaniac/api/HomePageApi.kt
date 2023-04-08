@@ -8,5 +8,5 @@ import retrofit2.http.Url
 interface HomePageApi {
 
     @GET("https://www.sinemalar.com/api/test/v1/home")
-    suspend fun getData(@Url string: String) : Response<MainPageData>
+    suspend fun getData() : Response<MainPageData>
 }

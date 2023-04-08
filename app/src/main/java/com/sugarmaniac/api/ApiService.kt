@@ -10,6 +10,7 @@ class ApiService {
 
     private val BASE_DEVICE_URL = "https://192.168.0.1/"
 
+
     private val api = Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create())
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
@@ -17,7 +18,7 @@ class ApiService {
         .build()
         .create(HomePageApi::class.java)
 
-    suspend fun getDeviceDetail(string: String): Response<MainPageData> {
-        return api.getData(string)
+    suspend fun getDeviceDetail(): Response<MainPageData> {
+        return api.getData()
     }
 }
