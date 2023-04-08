@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/mainmenu"
+        android:title="Ana Sayfa"
+        android:icon="@drawable/ic_baseline_home_24"
+        app:showAsAction="withText" />
+    <item
+        android:id="@+id/salon"
+        android:title="Salonlar"
+        android:icon="@drawable/ic_baseline_place_24"
+        app:showAsAction="withText" />
+    <item
+        android:id="@+id/cinepedia"
+        android:title=" Sinepedi"
+        android:icon="@drawable/ic_baseline_airplay_24"
+        app:showAsAction="withText"
+        />
+    <item
+        android:id="@+id/cinefeed"
+        android:title="Sine Akış"
+        android:icon="@drawable/ic_baseline_dynamic_feed_24"
+        app:showAsAction="withText" />
+    <item
+        android:id="@+id/profile"
+        android:title="Profil"
+        android:icon="@drawable/ic_baseline_account_circle_24"
+        app:showAsAction="withText" />
+
+</menu>
