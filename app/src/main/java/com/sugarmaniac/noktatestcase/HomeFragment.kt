@@ -64,6 +64,8 @@ class HomeFragment : Fragment() {
         platfromAdapter = PlatformItemAdapter(emptyList()) { list, pos ->
             platfromAdapter.setCurrentSelected(pos)
             platfromSeriesItemRVAdapter.setList(list)
+            binding.platformItemRv.scrollToPosition(0)
+            binding.platformRV.scrollToPosition(pos)
         }
         binding.platformRV.adapter = platfromAdapter
 
