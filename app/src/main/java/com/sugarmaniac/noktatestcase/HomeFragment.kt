@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sugarmaniac.noktatestcase.databinding.FragmentHomeBinding
 import com.sugarmaniac.rvadapters.FeaturedItemRVAdapter
 import com.sugarmaniac.rvadapters.GeneralItemAdapter
+import com.sugarmaniac.rvadapters.MostTalkedItemAdapter
 import com.sugarmaniac.rvadapters.PlatformItemAdapter
 
 class HomeFragment : Fragment() {
@@ -25,6 +26,7 @@ class HomeFragment : Fragment() {
     private lateinit var upcomingItemRVAdapter: GeneralItemAdapter
     private lateinit var bornTodayItemRVAdapter: GeneralItemAdapter
     private lateinit var platfromAdapter : PlatformItemAdapter
+    private lateinit var mostTalkedItemAdapter: MostTalkedItemAdapter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -64,6 +66,9 @@ class HomeFragment : Fragment() {
             platfromSeriesItemRVAdapter.setList(list)
         }
         binding.platformRV.adapter = platfromAdapter
+
+        mostTalkedItemAdapter = MostTalkedItemAdapter(emptyList()){}
+        binding.mostTalkedRV.adapter = mostTalkedItemAdapter
 
         val snapHelper = PagerSnapHelper()
         snapHelper.attachToRecyclerView(binding.featuredItems)
@@ -108,7 +113,7 @@ class HomeFragment : Fragment() {
         }
 
         sharedViewModel.popularArtist.observe(viewLifecycleOwner){
-
+            mostTalkedItemAdapter.setList(it)
         }
 
         sharedViewModel.platforms.observe(viewLifecycleOwner){
